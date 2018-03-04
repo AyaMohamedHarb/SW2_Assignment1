@@ -1,0 +1,19 @@
+<?php
+	$country=false;
+	if(isset($_GET['country'])){
+	$country=$_GET['country'];}
+	$city=false;
+	if(isset($_GET['city'])){
+	$city=$_GET['city'];}
+	$start=false;
+	if(isset($_GET['start'])){
+	$start=$_GET['start'];}
+	$end=false;
+	if(isset($_GET['end'])){
+	$end=$_GET['end'];}
+	$url='http://api.weatherbit.io/v2.0/history/daily?key=5a3c3c2cefde45f69ce6ddca2c609bfe&country=$country&city=$city&start_date=$start&end_date=$end';
+	$json=file_get_contents($url);
+	$out=json_decode($json,true);
+	echo $json;
+	print_r($out);
+?>
